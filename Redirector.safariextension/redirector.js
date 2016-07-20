@@ -6,10 +6,6 @@ function getTarget(element) {
     }
 }
 
-safari.self.addEventListener("message", function(event){
-    console.log(evnet);
-}, false);
-
 document.addEventListener("beforeload", function(event){
     var element = event.target;
     if (!element.nodeName) return;

@@ -40,7 +40,7 @@ function checkCanLoad(event) {
                 var replace_str = url.match(re);
                 event.message = {
                     type : 'redirect',
-                    to : url.replace(replace_str, urllist[k][1])
+                    to : url.replace(replace_str, str_replace)
                 }
                 if (type == "script"){
                     event.message.data = getScript(event.message.to);
