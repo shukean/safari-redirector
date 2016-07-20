@@ -12,8 +12,8 @@ safari.self.addEventListener("message", function(event){
 
 document.addEventListener("beforeload", function(event){
     var element = event.target;
+    if (!element.nodeName) return;
     var target = getTarget(element);
-    
     //check url
     if (target == 'style' || target == 'script') {
         response = safari.self.tab.canLoad(event, {
