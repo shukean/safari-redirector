@@ -9,3 +9,5 @@ A safari extension use for redirect googleapis.com to useso.com
 进入safari extentions builder   
 加入本项目, 生成可导入包, 自行导入safari   
 
+###Thanks
+https://github.com/lanceli/redirector  
