@@ -1,5 +1,5 @@
 
-var defaultRules = "s?://ajax.googleapis.com,://ajax.useso.com\ns?://fonts.googleapis.com,://fonts.useso.com";
+var defaultRules = "//ajax.googleapis.com,//ajax.useso.com\n//fonts.googleapis.com,//fonts.useso.com";
 document.addEventListener("DOMContentLoaded", function(){
     var $rules = document.getElementById("rules");
     $rules.focus();

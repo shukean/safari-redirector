@@ -18,10 +18,6 @@ function checkCanLoad(event) {
     var urllist = JSON.parse(localStorage.getItem("redirectorRules_json"));
     var url = event.message.url,
         type = event.message.type;
-    //compatible ellipsis
-    if (url.indexOf('http:') !== 0 && url.indexOf('https:') !== 0){
-        url = 'http:' + url;
-    }
 
     for (var k in urllist) {
         try{
@@ -38,12 +34,18 @@ function checkCanLoad(event) {
             isMatch = re.test(url)
             if (isMatch){
                 var replace_str = url.match(re);
-                event.message = {
-                    type : 'redirect',
-                    to : url.replace(replace_str, str_replace)
-                }
+                var to = url.replace(replace_str, str_replace);
                 if (type == "script"){
-                    event.message.data = getScript(event.message.to);
+                    event.message = {
+                        type : 'redirect',
+                        to : to,
+                        data : getScript(to)
+                    }
+                }else{
+                    event.message = {
+                        type : 'redirect',
+                        to : to
+                    }
                 }
                 return;
             }
