@@ -14,5 +14,21 @@
 		<key>Type</key>
 		<string>CheckBox</string>
 	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<string>1</string>
+		<key>FalseValue</key>
+		<string>-1</string>
+		<key>Key</key>
+		<string>linkOpenType</string>
+		<key>Secure</key>
+		<false/>
+		<key>Title</key>
+		<string>Enable link add target to _blank</string>
+		<key>TrueValue</key>
+		<string>1</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
 </array>
 </plist>

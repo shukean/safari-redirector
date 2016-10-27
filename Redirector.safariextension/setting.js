@@ -27,4 +27,20 @@ document.addEventListener("DOMContentLoaded", function(){
             });
         }
     });
+
+    var linkOpenType = document.getElementById("linkOpenType");
+    var val = localStorage.getItem("redirectorLinkOpenType") || 1;
+    linkOpenType.checked = val ? true : false;
+    linkOpenType.addEventListener("click", function(e){
+        var _val = linkOpenType.checked;
+        localStorage.setItem("redirectorLinkOpenType", _val ? 1 : -1);
+
+        if (safari){
+            safari.self.tab.dispatchMessage("saveLinkOpenType", {
+                'val' : _val
+            });
+        }
+
+    });
+
 });

@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Yukeyong</string>
 	<key>Builder Version</key>
-	<string>11601.7.7</string>
+	<string>12602.2.14.0.7</string>
 	<key>CFBundleDisplayName</key>
 	<string>Redirector</string>
 	<key>CFBundleIdentifier</key>
@@ -36,7 +36,7 @@
 	<key>Description</key>
 	<string>Redirector is a safari extension which allow redirect any http request by custom rules.</string>
 	<key>DeveloperIdentifier</key>
-	<string>6J94NBUQCE</string>
+	<string>0000000000</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>

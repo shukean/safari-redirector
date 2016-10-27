@@ -11,6 +11,7 @@ document.addEventListener("beforeload", function(event){
     var element = event.target;
     if (!element.nodeName) return;
     var target = getTarget(element);
+
     //check url
     if (target == 'style' || target == 'script') {
         var url = event.url;
@@ -23,7 +24,7 @@ document.addEventListener("beforeload", function(event){
             url : url,
             type : target,
         });
-        console.log(response)
+        // console.log(response)
         if (response.type == 'redirect'){
             console.warn(target + ":" + event.url + " is redirected to " + response.to);
             if (target == 'style') {
@@ -39,3 +40,27 @@ document.addEventListener("beforeload", function(event){
     }
     return;
 }, true);
+
+
+document.addEventListener("DOMContentLoaded", function(event){
+
+    var _status = safari.self.tab.canLoad(event, {
+            name : "getLinkOpenType",
+        });
+    console.info("link target _blank disabled:" + _status.val);
+    if (_status.val < 0){
+        return;
+    }
+
+    var targets = document.getElementsByTagName("A");
+    for(var i in targets){
+        var a = targets[i],
+            _href = a.href + "";
+        if (_href.length > 0 && !a.target){
+            if(_href.indexOf('http') == 0){
+                // console.log(_href);
+                a.setAttribute('target', '_blank');
+            }
+        }
+    }
+},true);

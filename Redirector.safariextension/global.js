@@ -73,14 +73,25 @@ function openTab(url) {
 safari.application.addEventListener('message', function(event){
     switch (event.name){
         case "canLoad":
-            if (event.message.name == "checkUrl"){
+            var type = event.message.name;
+            if (type == "checkUrl"){
                 checkCanLoad(event);
+            }else if(type == "getLinkOpenType"){
+                var _val = localStorage.getItem('redirectorLinkOpenType');
+                event.message = {
+                    'val' : _val == "false" ? 1 : _val
+                };
             }
             break;
         case "saveRules":
             var message = event.message;
             localStorage.setItem('redirectorRules_json', message.json);
             localStorage.setItem('redirectorRules_text', message.text);
+            break;
+        case "saveLinkOpenType":
+            alert(saveLinkOpenType);
+            var message = event.message;
+            localStorage.setItem('redirectorLinkOpenType', message.val);
             break;
     }
     return;
@@ -90,6 +101,10 @@ safari.application.addEventListener('message', function(event){
 safari.extension.settings.addEventListener("change", function(e) {
     if (e.key == 'openRedirectorAddRules'){
         openTab("setting.html");
+    }
+
+    if (e.key == "linkOpenType"){
+        localStorage.setItem('redirectorLinkOpenType', e.newValue);
     }
         
 }, false);
