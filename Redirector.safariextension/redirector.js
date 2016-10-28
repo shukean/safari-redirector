@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function(event){
     var _status = safari.self.tab.canLoad(event, {
             name : "getLinkOpenType",
         });
-    console.info("link target _blank disabled:" + _status.val);
+    console.info("link target _blank status:" + _status.val);
     if (_status.val < 0){
         return;
     }
@@ -57,9 +57,12 @@ document.addEventListener("DOMContentLoaded", function(event){
         var a = targets[i],
             _href = a.href + "";
         if (_href.length > 0 && !a.target){
-            if(_href.indexOf('http') == 0){
+            if(_href.indexOf('javascript') < 0){
                 // console.log(_href);
-                a.setAttribute('target', '_blank');
+                a.target = '_blank';
+                if (a.onclick){
+                    a.onclick = a.onclick + "; this.target='_blank';";
+                }
             }
         }
     }
