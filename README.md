@@ -1,5 +1,6 @@
 # safari-redirector
-A safari extension use for redirect googleapis.com to useso.com
+A safari extension use for redirect googleapis.com to useso.com   
+Add: open links to new tab. (Enable or Disabled)
 
 ##Warn
 你需要加入Apple Developer   
