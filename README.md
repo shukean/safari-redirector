@@ -1,14 +1,10 @@
-# safari-redirector
-A safari extension use for redirect googleapis.com to useso.com   
-Add: open links to new tab. (Enable or Disabled)
+# safari-redirector  
+1. 资源替换  
+2. 链接新Tab也打开  
 
-##Warn
-你需要加入Apple Developer   
-生成safari developer 证书, 导入电脑   
+# 说明  
+### 功能1   
+像类型google的css, jquery 由于网络原因不稳定,加载非常慢. 可以使用域名替换, 想360的镜像还不错.  
 
-打开safari 的开发者模式   
-进入safari extentions builder   
-加入本项目, 生成可导入包, 自行导入safari   
-
-###Thanks
-https://github.com/lanceli/redirector  
+### 功能2  
+改写链家打开方式, 将默认(即没有标明target)的方式改写成 _blank.   

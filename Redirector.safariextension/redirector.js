@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function(event){
         var a = targets[i],
             _href = a.href + "";
         if (_href.length > 0 && !a.target){
-            if(_href.indexOf('javascript') < 0){
+            if(_href.indexOf('javascript') < 0 && _href.indexOf('#') < 0){
                 // console.log(_href);
                 a.target = '_blank';
                 if (a.onclick){
